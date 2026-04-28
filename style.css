@@ -1,0 +1,82 @@
+/* CSS Variables (Themes) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-color: #f4f4f4;
+}
+
+.dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-color: #1e1e1e;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Grid Layout */
+.dashboard {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  padding: 15px;
+  background: #2196f3;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #333;
+  color: white;
+  padding: 15px;
+}
+
+.content {
+  grid-area: content;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: var(--card-color);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 10px;
+  background: #ddd;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .dashboard {
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
